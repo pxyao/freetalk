@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="per.freetalk.mapper.FtCommentMapper" >
+  <resultMap id="BaseResultMap" type="per.freetalk.pojo.FtComment" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="UP_ID" property="upId" jdbcType="BIGINT" />
+    <result column="COMMENT_ID" property="commentId" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="per.freetalk.pojo.FtComment" extends="BaseResultMap" >
+    <result column="COMMENT_TEXT" property="commentText" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, UP_ID, COMMENT_ID
+  </sql>
+  <sql id="Blob_Column_List" >
+    COMMENT_TEXT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="per.freetalk.pojo.FtCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ft_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="per.freetalk.pojo.FtCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ft_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ft_comment
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ft_comment
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="per.freetalk.pojo.FtCommentExample" >
+    delete from ft_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="per.freetalk.pojo.FtComment" >
+    insert into ft_comment (ID, UP_ID, COMMENT_ID, 
+      COMMENT_TEXT)
+    values (#{id,jdbcType=BIGINT}, #{upId,jdbcType=BIGINT}, #{commentId,jdbcType=BIGINT}, 
+      #{commentText,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="per.freetalk.pojo.FtComment" >
+    insert into ft_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="upId != null" >
+        UP_ID,
+      </if>
+      <if test="commentId != null" >
+        COMMENT_ID,
+      </if>
+      <if test="commentText != null" >
+        COMMENT_TEXT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="upId != null" >
+        #{upId,jdbcType=BIGINT},
+      </if>
+      <if test="commentId != null" >
+        #{commentId,jdbcType=BIGINT},
+      </if>
+      <if test="commentText != null" >
+        #{commentText,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="per.freetalk.pojo.FtCommentExample" resultType="java.lang.Integer" >
+    select count(*) from ft_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ft_comment
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.upId != null" >
+        UP_ID = #{record.upId,jdbcType=BIGINT},
+      </if>
+      <if test="record.commentId != null" >
+        COMMENT_ID = #{record.commentId,jdbcType=BIGINT},
+      </if>
+      <if test="record.commentText != null" >
+        COMMENT_TEXT = #{record.commentText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ft_comment
+    set ID = #{record.id,jdbcType=BIGINT},
+      UP_ID = #{record.upId,jdbcType=BIGINT},
+      COMMENT_ID = #{record.commentId,jdbcType=BIGINT},
+      COMMENT_TEXT = #{record.commentText,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ft_comment
+    set ID = #{record.id,jdbcType=BIGINT},
+      UP_ID = #{record.upId,jdbcType=BIGINT},
+      COMMENT_ID = #{record.commentId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="per.freetalk.pojo.FtComment" >
+    update ft_comment
+    <set >
+      <if test="upId != null" >
+        UP_ID = #{upId,jdbcType=BIGINT},
+      </if>
+      <if test="commentId != null" >
+        COMMENT_ID = #{commentId,jdbcType=BIGINT},
+      </if>
+      <if test="commentText != null" >
+        COMMENT_TEXT = #{commentText,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="per.freetalk.pojo.FtComment" >
+    update ft_comment
+    set UP_ID = #{upId,jdbcType=BIGINT},
+      COMMENT_ID = #{commentId,jdbcType=BIGINT},
+      COMMENT_TEXT = #{commentText,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="per.freetalk.pojo.FtComment" >
+    update ft_comment
+    set UP_ID = #{upId,jdbcType=BIGINT},
+      COMMENT_ID = #{commentId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

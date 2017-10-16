@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>per.freetalk</groupId>
+    <artifactId>ft-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>per.freetalk</groupId>
+  <artifactId>ft-friends</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>ft-friends-service</module>
+  	<module>ft-friends-dao</module>
+  	<module>ft-friends-pojo</module>
+  	<module>ft-friends-interface</module>
+  </modules>
+</project>

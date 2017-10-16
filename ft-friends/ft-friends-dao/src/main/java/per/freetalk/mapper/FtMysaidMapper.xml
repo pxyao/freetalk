@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="per.freetalk.mapper.FtMysaidMapper" >
+  <resultMap id="BaseResultMap" type="per.freetalk.pojo.FtMysaid" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="UPID" property="upid" jdbcType="BIGINT" />
+    <result column="UIID" property="uiid" jdbcType="BIGINT" />
+    <result column="COMMENT_ID" property="commentId" jdbcType="BIGINT" />
+    <result column="DATE" property="date" jdbcType="DATE" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="per.freetalk.pojo.FtMysaid" extends="BaseResultMap" >
+    <result column="SAID" property="said" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, UPID, UIID, COMMENT_ID, DATE
+  </sql>
+  <sql id="Blob_Column_List" >
+    SAID
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="per.freetalk.pojo.FtMysaidExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ft_mysaid
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="per.freetalk.pojo.FtMysaidExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ft_mysaid
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ft_mysaid
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from ft_mysaid
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="per.freetalk.pojo.FtMysaidExample" >
+    delete from ft_mysaid
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="per.freetalk.pojo.FtMysaid" >
+    insert into ft_mysaid (ID, UPID, UIID, 
+      COMMENT_ID, DATE, SAID
+      )
+    values (#{id,jdbcType=BIGINT}, #{upid,jdbcType=BIGINT}, #{uiid,jdbcType=BIGINT}, 
+      #{commentId,jdbcType=BIGINT}, #{date,jdbcType=DATE}, #{said,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="per.freetalk.pojo.FtMysaid" >
+    insert into ft_mysaid
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="upid != null" >
+        UPID,
+      </if>
+      <if test="uiid != null" >
+        UIID,
+      </if>
+      <if test="commentId != null" >
+        COMMENT_ID,
+      </if>
+      <if test="date != null" >
+        DATE,
+      </if>
+      <if test="said != null" >
+        SAID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="upid != null" >
+        #{upid,jdbcType=BIGINT},
+      </if>
+      <if test="uiid != null" >
+        #{uiid,jdbcType=BIGINT},
+      </if>
+      <if test="commentId != null" >
+        #{commentId,jdbcType=BIGINT},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="said != null" >
+        #{said,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="per.freetalk.pojo.FtMysaidExample" resultType="java.lang.Integer" >
+    select count(*) from ft_mysaid
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ft_mysaid
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.upid != null" >
+        UPID = #{record.upid,jdbcType=BIGINT},
+      </if>
+      <if test="record.uiid != null" >
+        UIID = #{record.uiid,jdbcType=BIGINT},
+      </if>
+      <if test="record.commentId != null" >
+        COMMENT_ID = #{record.commentId,jdbcType=BIGINT},
+      </if>
+      <if test="record.date != null" >
+        DATE = #{record.date,jdbcType=DATE},
+      </if>
+      <if test="record.said != null" >
+        SAID = #{record.said,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ft_mysaid
+    set ID = #{record.id,jdbcType=BIGINT},
+      UPID = #{record.upid,jdbcType=BIGINT},
+      UIID = #{record.uiid,jdbcType=BIGINT},
+      COMMENT_ID = #{record.commentId,jdbcType=BIGINT},
+      DATE = #{record.date,jdbcType=DATE},
+      SAID = #{record.said,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ft_mysaid
+    set ID = #{record.id,jdbcType=BIGINT},
+      UPID = #{record.upid,jdbcType=BIGINT},
+      UIID = #{record.uiid,jdbcType=BIGINT},
+      COMMENT_ID = #{record.commentId,jdbcType=BIGINT},
+      DATE = #{record.date,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="per.freetalk.pojo.FtMysaid" >
+    update ft_mysaid
+    <set >
+      <if test="upid != null" >
+        UPID = #{upid,jdbcType=BIGINT},
+      </if>
+      <if test="uiid != null" >
+        UIID = #{uiid,jdbcType=BIGINT},
+      </if>
+      <if test="commentId != null" >
+        COMMENT_ID = #{commentId,jdbcType=BIGINT},
+      </if>
+      <if test="date != null" >
+        DATE = #{date,jdbcType=DATE},
+      </if>
+      <if test="said != null" >
+        SAID = #{said,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="per.freetalk.pojo.FtMysaid" >
+    update ft_mysaid
+    set UPID = #{upid,jdbcType=BIGINT},
+      UIID = #{uiid,jdbcType=BIGINT},
+      COMMENT_ID = #{commentId,jdbcType=BIGINT},
+      DATE = #{date,jdbcType=DATE},
+      SAID = #{said,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="per.freetalk.pojo.FtMysaid" >
+    update ft_mysaid
+    set UPID = #{upid,jdbcType=BIGINT},
+      UIID = #{uiid,jdbcType=BIGINT},
+      COMMENT_ID = #{commentId,jdbcType=BIGINT},
+      DATE = #{date,jdbcType=DATE}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
