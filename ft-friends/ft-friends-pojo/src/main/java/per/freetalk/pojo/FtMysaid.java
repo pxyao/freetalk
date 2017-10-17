@@ -1,8 +1,9 @@
 package per.freetalk.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FtMysaid {
+public class FtMysaid implements Serializable {
     private Long id;
 
     private Long upid;
@@ -14,6 +15,8 @@ public class FtMysaid {
     private Date date;
 
     private String said;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

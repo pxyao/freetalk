@@ -4,4 +4,6 @@ import per.freetalk.common.pojo.ftResult;
 
 public interface LoginService {
 	public ftResult login(String username,String password);
+	
+	public boolean validateUsername(String username);
 }

@@ -20,42 +20,72 @@
 }
 </style>
 
-<body>
-
-	<div class="container">
+<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<img src="holder.js/100px350" />
 				</div>
 				<div class="col-md-4">
-					<form id="logForm" action="" role="form">
+					<form id="logForm" action="page/login" method="post">
 						<div class="form-group">
 							<label for="">用户名</label>
-							<input type="text" class="form-control" id="username"
-							placeholder="用户名">
+							<input name="username" type="text" class="form-control" id="username" placeholder="用户名">
 						</div>
 						
 						<div class="form-group">
 							<label for="">密码</label>
-							<input type="password" class="form-control" id="password"
-							placeholder="密码">
+							<input name="password" type="password" class="form-control" id="password" placeholder="密码">
 						</div>
 
 						<div class="form-group">
 							<label for="">验证码</label>
-							<input type="text" class="form-control" id="validcode"
-							placeholder="验证码">
+							<input name="validateCode" type="text" class="form-control" id="validcode" placeholder="验证码">
 						</div>
 						
 						<div class="form-group">
-							<input type="button" class="btn btn-primary" value="登录">
-							<input type="button" class="btn btn-primary" value="注册"
-							onclick="javascrtpt:toReg()">
+							<button id="login_btn" type="button" class="btn btn-primary">登录</button>
+							<input id="reg_input"type="button" class="btn btn-primary" value="注册">
 						<script>
-							function toReg() {
-								//颜面跳转
-								location.href = "/page/register";
-							}
+							var LOGIN = {
+								checkInput:function() {
+									var un = $("#username").val();
+									var pd = $("#password").val();
+									if(un == ""){
+										alert("用户名不能为空");
+										return false;
+									}
+									if(pd == ""){
+										alert("密码不能为空");
+										return false;
+									}
+									if(un.length<=3){
+										alert("用户名长度不正确")
+										return false;
+									}
+									if(pd.length<=3){
+										alert("密码长度不正确")
+										return false;
+									}
+									return true;
+								}
+							};
+							
+							$("#login_btn").click(function(){
+								//校验用户名密码是否合法
+								var un = $("#username").val();
+								var pd = $("#password").val();
+								if(LOGIN.checkInput()){
+									alert("后台校验");
+									$.post("/sso/login",
+											$("#logForm").serialize(),
+											function(data){
+												if(data.status==200){
+													alert("正确");
+												}
+											});
+								}
+							});
+							
 						</script>
 						</div>
 					</form>
@@ -63,7 +93,7 @@
 			</div>
 
 		</div>
-</body>
+	</body>
 
 
 </html>

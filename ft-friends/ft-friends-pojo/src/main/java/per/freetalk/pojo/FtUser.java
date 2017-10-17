@@ -1,8 +1,9 @@
 package per.freetalk.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FtUser {
+public class FtUser implements Serializable {
     private Long id;
 
     private String username;
@@ -14,6 +15,8 @@ public class FtUser {
     private String phone;
 
     private String email;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

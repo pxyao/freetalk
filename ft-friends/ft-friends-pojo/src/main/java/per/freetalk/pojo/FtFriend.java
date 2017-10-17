@@ -1,11 +1,15 @@
 package per.freetalk.pojo;
 
-public class FtFriend {
+import java.io.Serializable;
+
+public class FtFriend implements Serializable {
     private Long id;
 
     private String myid;
 
     private String myfriendid;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

@@ -1,6 +1,8 @@
 package per.freetalk.pojo;
 
-public class FtComment {
+import java.io.Serializable;
+
+public class FtComment implements Serializable {
     private Long id;
 
     private Long upId;
@@ -8,6 +10,8 @@ public class FtComment {
     private Long commentId;
 
     private String commentText;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;

@@ -17,15 +17,15 @@
 	http://code.alibabatech.com/schema/dubbo
 	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<context:component-scan base-package="cn.e3mall.sso.service.impl"/>
+	<context:component-scan base-package="per.freetalk.sso.service.impl"/>
 	
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="ft-sso" />
 	<dubbo:registry protocol="zookeeper"
-		address="192.168.25.129:2181"/>
+		address="192.168.25.132:2181"/>
 	<!-- 用dubbo协议在20881端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20881" />
 	<!-- 声明需要暴露的服务接口 -->
-<!-- 	<dubbo:service interface="cn.e3mall.sso.service.RegisterService" ref="registerServiceImpl" timeout="600000"/> -->
+	<dubbo:service interface="per.freetalk.sso.service.LoginService" ref="loginServiceImpl" timeout="600000"/>
 </beans>

@@ -1,9 +1,13 @@
 package per.freetalk.pojo;
 
-public class FtUp {
+import java.io.Serializable;
+
+public class FtUp implements Serializable {
     private Long id;
 
     private Long uiid;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
