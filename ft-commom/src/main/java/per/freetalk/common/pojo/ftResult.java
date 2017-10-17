@@ -10,6 +10,10 @@ public class ftResult implements Serializable{
 	//响应数据
 	private Object data;
 	
+	public static ftResult fall(String msg){
+		return new ftResult(msg);
+	}
+	
 	//返回成功默认状态码 200
 	public static ftResult ok(){
 		return new ftResult(200,"OK");
@@ -41,6 +45,11 @@ public class ftResult implements Serializable{
 		this.status = status;
 		this.msg = msg;
 	}
+	public ftResult(String msg) {
+		super();
+		this.msg = msg;
+	}
+
 	public Integer getStatus() {
 		return status;
 	}

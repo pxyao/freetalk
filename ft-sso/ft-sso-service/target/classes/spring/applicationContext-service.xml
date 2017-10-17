@@ -28,4 +28,5 @@
 	<dubbo:protocol name="dubbo" port="20881" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="per.freetalk.sso.service.LoginService" ref="loginServiceImpl" timeout="600000"/>
+	<dubbo:service interface="per.freetalk.sso.service.RegisterService" ref="registerServiceImpl" timeout="600000"/>
 </beans>

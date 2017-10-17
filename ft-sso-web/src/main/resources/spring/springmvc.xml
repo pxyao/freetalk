@@ -28,4 +28,6 @@
 	address="192.168.25.132:2181"/>
 	<dubbo:reference interface="per.freetalk.sso.service.LoginService"
 	id="loginService" />
+	<dubbo:reference interface="per.freetalk.sso.service.RegisterService"
+	id="registerService" />
 </beans>

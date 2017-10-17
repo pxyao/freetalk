@@ -44,7 +44,7 @@
 						
 						<div class="form-group">
 							<button id="login_btn" type="button" class="btn btn-primary">登录</button>
-							<input id="reg_input"type="button" class="btn btn-primary" value="注册">
+							<button id="reg_btn" type="button" class="btn btn-primary">注册</button>
 						<script>
 							var LOGIN = {
 								checkInput:function() {
@@ -86,6 +86,11 @@
 								}
 							});
 							
+							$("#reg_btn").click(function(){
+								location.href="/page/register";
+							});
+							
+
 						</script>
 						</div>
 					</form>
