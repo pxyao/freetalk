@@ -1,0 +1,5 @@
+用Mybatis+Spring+SpringMVC框架
+Dubbo实现服务间互相调用
+Nginx反向代理
+SolrJ 用户搜索
+ActiveMQ实现数据导入索引库
