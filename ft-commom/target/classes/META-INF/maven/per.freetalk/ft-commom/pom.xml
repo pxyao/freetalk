@@ -1,16 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>per.freetalk</groupId>
-    <artifactId>ft-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <groupId>per.freetalk</groupId>
-  <artifactId>ft-commom</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  <!-- 依赖的jar包 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>per.freetalk</groupId>
+		<artifactId>ft-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<groupId>per.freetalk</groupId>
+	<artifactId>ft-commom</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- 依赖的jar包 -->
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -100,5 +105,5 @@
 			<artifactId>commons-fileupload</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 </project>

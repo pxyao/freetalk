@@ -80,16 +80,15 @@
 											$("#logForm").serialize(),
 											function(data){
 												if(data.status==200){
-													alert("正确");
+													location.href="/page/MyHome"
 												}
 											});
 								}
 							});
 							
 							$("#reg_btn").click(function(){
-								location.href="/page/register";
+								location.href="localhost:8084/page//page/MyHome";
 							});
-							
 
 						</script>
 						</div>

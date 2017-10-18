@@ -14,7 +14,7 @@
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
@@ -29,10 +29,16 @@
 
 	<!-- 配置资源映射 -->
 
-	<mvc:resources location="/css/" mapping="/css/**" />
-	<mvc:resources location="/js/" mapping="/js/**" />
+<!-- 	<mvc:resources location="/css/" mapping="/css/**" /> -->
+<!-- 	<mvc:resources location="/fonts/" mapping="/fonts/**" /> -->
+<!-- 	<mvc:resources location="/img/" mapping="/img/**" /> -->
+<!-- 	<mvc:resources location="/js/" mapping="/js/**" /> -->
+<!-- 	<mvc:resources location="/lang/" mapping="/lang/**" /> -->
+<!-- 	<mvc:resources location="/plugins/" mapping="/plugins/**" /> -->
+<!-- 	<mvc:resources location="/themes/default/" mapping="/themes/default/**" /> -->
+	<mvc:resources location="/" mapping="/**" />
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="ft-friends-web" />
-	<dubbo:registry protocol="zookeeper" address="192.168.25.132:2181" />
-<!-- 	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService" /> -->
+	<dubbo:registry protocol="zookeeper" address="192.168.25.133:2181" />
+	<dubbo:reference interface="per.freetalk.service.HomePageService" id="homePageService" />
 </beans>

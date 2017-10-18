@@ -13,6 +13,9 @@
         <dependent-module archiveName="ft-friends-interface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ft-friends-interface/ft-friends-interface">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ft-commom-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ft-commom/ft-commom">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="ft-friends-service"/>
         <property name="java-output-path" value="/ft-friends-service/target/classes"/>
     </wb-module>

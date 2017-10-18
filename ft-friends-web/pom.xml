@@ -15,7 +15,12 @@
 			<artifactId>ft-friends-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>per.freetalk</groupId>
+			<artifactId>ft-commom</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -94,7 +99,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/</path>
-					<port>8080</port>
+					<port>8084</port>
 				</configuration>
 			</plugin>
 		</plugins>
