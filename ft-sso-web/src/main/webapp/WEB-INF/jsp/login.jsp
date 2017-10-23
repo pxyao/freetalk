@@ -80,14 +80,16 @@
 											$("#logForm").serialize(),
 											function(data){
 												if(data.status==200){
-													location.href="/page/MyHome"
+													location.href="http://localhost:8084/page/MyHome";
+												}else{
+													alert(data.msg);
 												}
 											});
 								}
 							});
 							
 							$("#reg_btn").click(function(){
-								location.href="localhost:8084/page//page/MyHome";
+								location.href="http://localhost:8084/page/page/MyHome";
 							});
 
 						</script>

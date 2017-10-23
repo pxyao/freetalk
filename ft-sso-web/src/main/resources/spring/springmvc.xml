@@ -25,7 +25,7 @@
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="ft-sso-web" />
 	<dubbo:registry protocol="zookeeper" 
-	address="192.168.25.133:2181"/>
+	address="192.168.25.134:2181"/>
 	<dubbo:reference interface="per.freetalk.sso.service.LoginService"
 	id="loginService" />
 	<dubbo:reference interface="per.freetalk.sso.service.RegisterService"

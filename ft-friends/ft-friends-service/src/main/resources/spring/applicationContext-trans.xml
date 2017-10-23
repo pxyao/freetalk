@@ -30,6 +30,6 @@
 	<!-- 切面 -->
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution(* cn.e3mall.service.*.*(..))" />
+			pointcut="execution(* per.freetalk.service.*.*(..))" />
 	</aop:config>
 </beans>

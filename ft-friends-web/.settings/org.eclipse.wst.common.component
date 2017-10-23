@@ -10,6 +10,9 @@
         <dependent-module archiveName="ft-commom-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ft-commom/ft-commom">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ft-friends-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ft-friends-pojo/ft-friends-pojo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="ft-friends-web"/>
         <property name="java-output-path" value="/ft-friends-web/target/classes"/>
     </wb-module>
