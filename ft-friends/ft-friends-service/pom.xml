@@ -11,6 +11,12 @@
 <dependencies>
 		<dependency>
 			<groupId>per.freetalk</groupId>
+			<artifactId>ft-friends-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>per.freetalk</groupId>
 			<artifactId>ft-friends-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

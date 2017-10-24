@@ -6,4 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>ft-friends-interface</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>per.freetalk</groupId>
+  		<artifactId>ft-friends-pojo</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
