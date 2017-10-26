@@ -12,6 +12,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>per.freetalk</groupId>
+			<artifactId>ft-search-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>per.freetalk</groupId>
 			<artifactId>ft-friends-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

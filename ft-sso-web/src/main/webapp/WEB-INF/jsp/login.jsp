@@ -75,7 +75,6 @@
 								var un = $("#username").val();
 								var pd = $("#password").val();
 								if(LOGIN.checkInput()){
-									alert("后台校验");
 									$.post("/sso/login",
 											$("#logForm").serialize(),
 											function(data){
@@ -89,7 +88,7 @@
 							});
 							
 							$("#reg_btn").click(function(){
-								location.href="http://localhost:8084/page/page/MyHome";
+								location.href="http://localhost:8081/page/register";
 							});
 
 						</script>
