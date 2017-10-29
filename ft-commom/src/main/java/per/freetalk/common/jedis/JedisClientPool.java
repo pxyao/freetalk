@@ -1,6 +1,7 @@
 package per.freetalk.common.jedis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -13,7 +14,7 @@ public class JedisClientPool implements JedisClient {
 	public JedisPool getJedisPool() {
 		return jedisPool;
 	}
-
+	
 	public void setJedisPool(JedisPool jedisPool) {
 		this.jedisPool = jedisPool;
 	}
